@@ -4,13 +4,11 @@ import SkillsListItem from "./SkillsListItem";
 
 
 // define the React functional component
-const SkillsList = () => {
+const SkillsList = ({ skills }) => {
+    const SkillsListItems = skills.map((s, idx) => <SkillsListItem skill={s} key={idx}/>)
     return  (
-        <ul>
-           <SkillsListItem />           
-           <SkillsListItem />           
-           <SkillsListItem />      
-                      
+        <ul className="SkillsList">                
+            { SkillsListItems } 
         </ul>
     )
 }

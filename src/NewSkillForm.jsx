@@ -1,12 +1,12 @@
 //
 
 
-
+import "./NewSkillForm.css"
 
 // Define
 const NewSkillForm = () => {
     return (
-        <form action="">
+        <form action="" className="NewSkillForm">
             <label htmlFor="">Skill</label>
             <input type="text" />
             <label htmlFor="">Level</label>
