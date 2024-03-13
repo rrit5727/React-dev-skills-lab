@@ -3,15 +3,16 @@ import { useState } from "react"
 import "./NewSkillForm.css"
 
 // Define
-const NewSkillForm = (addSkill) => {
-    const [newSkill, setNewSkill] = useState([{
+const NewSkillForm = ({addSkill}) => {
+    const [newSkill, setNewSkill] = useState({
         name: "",
         level: 3
-    }]);
+    });
 
-    handleAddSkill(event) {
+   function handleAddSkill(event) {
         event.preventDefault();
         addSkill(newSkill);
+        setNewSkill({name: '', level: 3});
     }
 
 
@@ -21,11 +22,13 @@ const NewSkillForm = (addSkill) => {
             action="" className="NewSkillForm">
             <label htmlFor="">Skill</label>
             <input 
-                value={newSkill} onChange={(event)=> setNewSkill(event.target.value) }
+                value={newSkill.name} onChange={(event)=> setNewSkill({...newSkill, name: event.target.value}) }
                 type="text" 
             />
             <label htmlFor="">Level</label>
-            <select name="" id="">
+            <select 
+                value={newSkill.level} onChange={(event)=> setNewSkill({...newSkill, level: parseInt(event.target.value, 10)})}
+            >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
